@@ -1,0 +1,82 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r}
+library(ggplot2)
+```
+
+
+```{r}
+library(readr)
+global_energy <- read_csv("C:/Users/dulmi/Downloads/global_renewable_energy_production.csv")
+head(global_energy)
+```
+
+```{r}
+summary(global_energy)
+```
+
+
+```{r}
+str(data)
+```
+
+```{r}
+colSums(is.na(global_energy))
+```
+
+
+```{r}
+freq.global_energy.SolarEnergy  = table(global_energy$SolarEnergy )
+freq.global_energy.SolarEnergy 
+```
+
+```{r}
+ freq.global_energy.WindEnergy   = table(global_energy$ WindEnergy  )
+freq.global_energy.WindEnergy 
+
+```
+
+```{r}
+freq.global_energy.HydroEnergy   = table(global_energy$HydroEnergy  )
+freq.global_energy.HydroEnergy
+
+```
+
+
+```{r}
+freq.global_energy.OtherRenewableEnergy=table(global_energy$ OtherRenewableEnergy  )
+freq.global_energy.OtherRenewableEnergy
+
+```
+
+```{r}
+hist(global_energy$WindEnergy ,main = "Histogram of  WindEnergy  ", xlab = "WindEnergy", col = "blue", border = "black")
+```
+
+
+```{r}
+hist(global_energy$SolarEnergy ,main = "Histogram of  SolarEnergy  ", xlab = "SolarEnergy", col = "blue", border = "black")
+```
+
+```{r}
+hist(global_energy$HydroEnergy ,main = "Histogram of  HydroEnergy  ", xlab = "HydroEnergy", col = "blue", border = "black")
+```
+
+```{r}
+hist(global_energy$OtherRenewableEnergy ,main = "Histogram of OtherRenewableEnergy ", xlab = "OtherRenewableEnergy", col = "blue", border = "black")
+```
+
+```{r}
+ggplot(global_energy, aes(x = Year, y = TotalRenewableEnergy)) +
+  geom_point() +
+  labs(title = "Scatter Plot of Total Renewable Energy Production Over the Years",
+       x = "Year",
+       y = "Total Renewable Energy (MWh)")
+```
+
+
